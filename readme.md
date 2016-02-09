@@ -1,4 +1,5 @@
 # [SourceMod ANY] Give Admin
+Written by 3V0Lu710N on 09/02/2016 `DD/MM/YYYY`
 ## Cvars
   smgiveadmin_version `1.0`
 ## Commands
