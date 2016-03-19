@@ -1,6 +1,5 @@
 #include <morecolors>
 #define PLUGIN_VERSION		"1.0"
-#define ALLOWED_USERS		"3V0Lu710N (1:30842083)"
 
 public Plugin:myinfo = 
 {
@@ -30,12 +29,6 @@ public Action:Command_GiveAdmin(client, args)
 	char steamid[32];
 	GetClientAuthId(client, AuthId_Steam2, steamid, sizeof(steamid));
 	GetClientName(client, identity, sizeof(identity));
-	if(!IsValidID(steamid))
-	{
-        CPrintToChatAll("{crimson}%s (%s) {white}Tried to use an unauthorized command", identity, steamid);
-		CPrintToChatAll("{white}Only {crimson}%s {white}has access to this command", ALLOWED_USERS);
-		return Plugin_Handled;
-	}
 	
 	char szTargetId[64];
 	char szTarget[64];
@@ -76,12 +69,4 @@ public Action:Command_GiveAdmin(client, args)
 	CPrintToChatAll("{limegreen}Access: %s", szFlags);
 
 	return Plugin_Handled;
-}
-
-bool IsValidID(char steamid [32])
-{
-    if(StrContains(steamid, "1:30842083") == -1) // Add your SteamID here
-        return false;
-    else
-        return true;
 }
